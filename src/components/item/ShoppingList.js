@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import Item from './Item';
 
-import {getItemsList} from '../../store/actions/Items';
+import {getItemsList} from '../../store/actions/items';
+
 import { connect } from 'react-redux';
 
 function ShoppingList({getItemsList, items}) {
-
-  console.log(items)
 
   const {loading, error, data} = items
 
@@ -26,6 +25,7 @@ function ShoppingList({getItemsList, items}) {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     items: state.items
   }

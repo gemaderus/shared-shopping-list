@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { postItem } from '../store/actions/SendItem';
+import { postItem } from '../store/actions/sendItem';
 import { connect } from 'react-redux';
 
 function AddItem({postItem}) {
 
   const [data, setData] = useState({name: ''});
-  console.log('soy el data', data)
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +14,6 @@ function AddItem({postItem}) {
     }
 
     postItem(data)
-    console.log('soy el data', data)
   }
 
   return(
@@ -27,9 +25,9 @@ function AddItem({postItem}) {
 }
 
 const mapStateToProps = state => {
-  console.log('soy el state', state)
   return {
-    items: state.items
+    items: state.items,
+    error: !!state.items.error,
   }
 }
 

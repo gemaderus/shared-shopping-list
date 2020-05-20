@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import itemsReducer from './store/reducers/Items';
+import itemsReducer from './store/reducers/items';
 
 /**
  * enable redux dev tools

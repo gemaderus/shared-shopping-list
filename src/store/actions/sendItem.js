@@ -1,5 +1,3 @@
-// import api from '../../api'
-
 import { POST_ITEM, POST_ITEM_SUCCESS, POST_ITEM_FAIL } from './actionTypes';
 
 const postItemStart = () => {
@@ -36,16 +34,13 @@ export const postItem = ((data) => {
       body: JSON.stringify(data)
    })
     .then(function(response) {
-      console.log('response', response)
       return response.json();
     })
     .then(function(data) {
       dispatch(postItemSuccess(data))
-      console.log('data', data);
     })
     .catch(function(err) {
       dispatch(postItemFail(err))
-      console.error('error', err);
     });
   }
 })

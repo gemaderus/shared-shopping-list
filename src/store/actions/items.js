@@ -16,13 +16,11 @@ const getItemsSuccess = items => {
 }
 
 const getItemsFail = error => {
-  console.log('error', error)
-  const errorStatus = error.message ? error.response.status : null;
+  // const errorStatus = error.message ? error.response : null;
 
   return {
     type: GET_ITEMS_FAIL,
-    error: errorStatus === 422 ? error : null,
-    networkError: errorStatus >= 500 ? error : null
+    error,
   }
 }
 
@@ -31,16 +29,13 @@ export const getItemsList = (() => {
     dispatch(getItemsStart());
     fetch('http://localhost:3004/items')
     .then(function(response) {
-      console.log('response', response)
       return response.json();
     })
     .then(function(data) {
       dispatch(getItemsSuccess(data))
-      console.log('data', data);
     })
     .catch(function(err) {
       dispatch(getItemsFail(err))
-      console.error('error', err);
     });
   }
 })
